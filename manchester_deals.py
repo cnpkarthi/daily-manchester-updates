@@ -23,18 +23,22 @@ def get_gemini_update():
         "with restaurant links included."
     )
     
-    try:
-        # Using the search tool allows for real-time local data
-        response = client.models.generate_content(
-            model="gemini-3.1-flash-lite-preview", # Latest stable fast model
-            contents=prompt,
-            config={
-                'tools': [{'google_search': {}}]
-            }
-        )
-        return response.text
-    except Exception as e:
-        return f"<p>Error fetching updates: {e}</p>"
+     max_retries = 3
+    for attempt in range(max_retries):
+        try:
+            response = client.models.generate_content(
+                model="gemini-3.1-flash-lite-preview", 
+                contents=prompt
+            )
+            return response.text
+        except Exception as e:
+            if "429" in str(e):
+                print(f"Rate limit hit. Waiting 30 seconds to retry (Attempt {attempt + 1}/{max_retries})...")
+                time.sleep(30)
+            else:
+                return f"<p>Error fetching updates: {e}</p>"
+    
+    return "<p>Error: Still hitting rate limits after 3 retries. Please try again later.</p>"
 
 def send_email():
     """Formats and sends the email."""
