@@ -3,7 +3,7 @@ name: Daily Manchester Update
 on:
   schedule:
     # 14:00 UTC is 10:00 AM in Manchester, CT
-    - cron: '0 22 * * *'
+    - cron: '0 14 * * *'
   workflow_dispatch: # This adds a manual "Play" button
 
 jobs:
