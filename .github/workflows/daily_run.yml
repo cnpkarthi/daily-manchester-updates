@@ -2,21 +2,24 @@ name: Daily Manchester Update
 
 on:
   schedule:
-    # 14:00 UTC is 10:00 AM in Manchester, CT
     - cron: '0 14 * * *'
-  workflow_dispatch: # This adds a manual "Play" button
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Optional: This line forces the runner to use Node 24 immediately
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6  # Updated from v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6 # Updated from v4
         with:
-          python-version: '3.14'
+          python-version: '3.10'
 
       - name: Install dependencies
         run: pip install -r requirements.txt
