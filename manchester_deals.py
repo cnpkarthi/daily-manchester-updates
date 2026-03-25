@@ -8,6 +8,7 @@ from google import genai
 # --- CONFIGURATION (Safe for GitHub) ---
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 SENDER_EMAIL = "cnpkarthi@gmail.com"
+RECEIVER_EMAIL = "girijakgiri4@gmail.com"
 APP_PASSWORD = os.environ.get("APP_PASSWORD") 
 TARGET_CITY = "Manchester, CT"
 
