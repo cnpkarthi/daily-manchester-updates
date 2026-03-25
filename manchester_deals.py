@@ -23,8 +23,7 @@ def get_gemini_update():
         "with restaurant links included."
     )
     
-     max_retries = 3
-    for attempt in range(max_retries):
+    for attempt in range(3):
         try:
             response = client.models.generate_content(
                 model="gemini-3.1-flash-lite-preview", 
