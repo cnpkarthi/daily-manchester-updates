@@ -48,7 +48,7 @@ def send_email():
     msg = EmailMessage()
     msg['Subject'] = f"Daily Manchester Update: {time.strftime('%b %d, %Y')}"
     msg['From'] = SENDER_EMAIL
-    msg['To'] = RECEIVER_EMAIL
+    msg['To'] = SENDER_EMAIL
     msg.set_content("Please enable HTML to view this update.")
     msg.add_alternative(content, subtype='html')
 
