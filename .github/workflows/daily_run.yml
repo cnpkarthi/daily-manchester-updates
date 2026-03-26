@@ -29,3 +29,4 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
         run: python manchester_deals.py
+             US Market News.py  
