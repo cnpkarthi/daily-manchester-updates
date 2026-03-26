@@ -44,7 +44,7 @@ def send_email():
     content = get_gemini_update()
     
     msg = EmailMessage()
-    msg['Subject'] = f"Daily Manchester Update: {time.strftime('%b %d, %Y')}"
+    msg['Subject'] = f"Daily Market News Update: {time.strftime('%b %d, %Y')}"
     msg['From'] = SENDER_EMAIL
     msg['To'] = SENDER_EMAIL
     msg.set_content("Please enable HTML to view this update.")
