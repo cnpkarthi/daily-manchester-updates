@@ -8,7 +8,7 @@ from google import genai
 # --- CONFIGURATION (Safe for GitHub) ---
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 SENDER_EMAIL = "cnpkarthi@gmail.com"
-RECEIVER_EMAIL = "girijakgiri4@gmail.com"
+RECEIVER_EMAILS = ["cnpkarthi@gmail.com","cnpkarthi1@gmail.com"]
 APP_PASSWORD = os.environ.get("APP_PASSWORD") 
 TARGET_CITY = "Manchester, CT"
 
@@ -46,7 +46,7 @@ def send_email():
     msg = EmailMessage()
     msg['Subject'] = f"Daily Manchester Update: {time.strftime('%b %d, %Y')}"
     msg['From'] = SENDER_EMAIL
-    msg['To'] = SENDER_EMAIL
+    msg['To'] = ", ".join(RECEIVER_EMAILS)
     msg.set_content("Please enable HTML to view this update.")
     msg.add_alternative(content, subtype='html')
 
