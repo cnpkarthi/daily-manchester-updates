@@ -19,7 +19,7 @@ def get_gemini_update():
     # We enable 'google_search' so Gemini can find actual current deals
     prompt = (
         f"Today is {time.strftime('%A, %B %d, %Y')}. Search for today's US Market news and pick buy/sell stocks ideas  "
-        "with  links included."
+        "Format as a clean HTML summary with links included."
     )
     
     for attempt in range(3):
