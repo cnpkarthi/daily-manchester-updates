@@ -19,7 +19,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v6 # Updated from v4
         with:
-          python-version: '3.14'
+         python-version: '3.12'
 
       - name: Install dependencies
         run: pip install -r requirements.txt
@@ -30,4 +30,4 @@ jobs:
           APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
         run: | 
              python manchester_deals.py
-             US_Market_News.py  
+             python US_Market_News.py  
