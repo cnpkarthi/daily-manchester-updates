@@ -24,22 +24,26 @@ def get_gemini_update():
         "with restaurant links included."
     )
     
-    for attempt in range(3):
+    wait_times = [30, 60, 120] 
+    for attempt, wait_sec in enumerate(wait_times):
         try:
             response = client.models.generate_content(
                 model="gemini-3.1-flash-lite-preview", 
-                contents=prompt
+                contents=prompt,
+                 config={'tools': [{'google_search': {}}]}
             )
             return response.text
+            
         except Exception as e:
-            if "429" in str(e):
-                print(f"Rate limit hit. Waiting 30 seconds to retry (Attempt {attempt + 1}/{max_retries})...")
-                time.sleep(30)
+            error_msg = str(e)
+            # If it's a 503 (Overloaded) or 429 (Too Many Requests)
+            if "503" in error_msg or "429" in error_msg:
+                print(f"Server busy (Attempt {attempt + 1}). Retrying in {wait_sec}s...")
+                time.sleep(wait_sec)
             else:
-                return f"<p>Error fetching updates: {e}</p>"
+                return f"<p>Permanent Error: {error_msg}</p>"
     
-    return "<p>Error: Still hitting rate limits after 3 retries. Please try again later.</p>"
-
+    return "<p>Error: Gemini servers were unavailable after 3 attempts. Please check back tomorrow.</p>"
 def send_email():
     """Formats and sends the email."""
     print("Generating real-time Manchester update...")
