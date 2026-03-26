@@ -2,7 +2,7 @@ name: Daily Manchester Update
 
 on:
   schedule:
-    - cron: '0 14 * * *'
+    - cron: '8 14 * * *'
   workflow_dispatch:
 
 jobs:
