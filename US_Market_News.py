@@ -31,7 +31,8 @@ def get_gemini_update():
                  config={'tools': [{'google_search': {}}]}
             )
             return response.text
-       except Exception as e:
+            
+        except Exception as e:
             error_msg = str(e)
             # If it's a 503 (Overloaded) or 429 (Too Many Requests)
             if "503" in error_msg or "429" in error_msg:
