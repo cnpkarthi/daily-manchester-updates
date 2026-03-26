@@ -30,4 +30,4 @@ jobs:
           APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
         run: | 
              python manchester_deals.py
-             US Market News.py  
+             US_Market_News.py  
