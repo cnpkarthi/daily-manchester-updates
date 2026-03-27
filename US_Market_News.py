@@ -26,7 +26,7 @@ def get_gemini_update():
     for attempt, wait_sec in enumerate(wait_times):
         try:
             response = client.models.generate_content(
-                model="gemini-3.1-flash-lite-preview", 
+                model="gemini-3.1-pro-preview", 
                 contents=prompt,
                  config={'tools': [{'google_search': {}}]}
             )
