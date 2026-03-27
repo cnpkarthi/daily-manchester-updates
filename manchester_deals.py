@@ -16,7 +16,6 @@ client = genai.Client(api_key=GEMINI_API_KEY)
 
 def get_gemini_update():
     """Fetches real-time local updates using Gemini with Google Search."""
-    # We enable 'google_search' so Gemini can find actual current deals
     prompt = (
         f"Today is {time.strftime('%A, %B %d, %Y')}. Search for today's food freebies, "
         f"restaurant BOGO offers, and community events in and around {TARGET_CITY}. "
@@ -28,7 +27,7 @@ def get_gemini_update():
     for attempt, wait_sec in enumerate(wait_times):
         try:
             response = client.models.generate_content(
-                model="gemini-3.1-flash-lite-preview", 
+                model="gemini-3.1-pro-preview", 
                 contents=prompt,
                  config={'tools': [{'google_search': {}}]}
             )
