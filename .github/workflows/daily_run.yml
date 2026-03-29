@@ -30,4 +30,6 @@ jobs:
           APP_PASSWORD: ${{ secrets.APP_PASSWORD }}
         run: | 
              python manchester_deals.py
-             python US_Market_News.py  
+             echo "Waiting 60 seconds to avoid 429 Rate Limit..."
+             sleep 60
+             python US_Market_News.py
