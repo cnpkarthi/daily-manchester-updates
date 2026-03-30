@@ -15,8 +15,6 @@ TARGET_CITY = "Manchester, CT"
 client = genai.Client(api_key=GEMINI_API_KEY)
 
 def get_gemini_update():
-    """Fetches real-time local updates using Gemini with Google Search."""
-    # We enable 'google_search' so Gemini can find actual current deals
     prompt = (
         f"Today is {time.strftime('%A, %B %d, %Y')}. Search for today's US Market news and pick buy/sell stocks ideas  "
         "Format as a clean HTML summary with links included."
@@ -26,7 +24,7 @@ def get_gemini_update():
     for attempt, wait_sec in enumerate(wait_times):
         try:
             response = client.models.generate_content(
-                model="gemini-3.1-pro-preview", 
+                model="gemini-3.1-flash-lite-preview", 
                 contents=prompt,
                  config={}
             )
