@@ -10,7 +10,6 @@ GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY")
 SENDER_EMAIL = "cnpkarthi@gmail.com"
 RECEIVER_EMAILS = ["cnpkarthi@gmail.com","cnpkarthi1@gmail.com"]
 APP_PASSWORD = os.environ.get("APP_PASSWORD") 
-TARGET_CITY = "Manchester, CT"
 
 client = genai.Client(api_key=GEMINI_API_KEY)
 
