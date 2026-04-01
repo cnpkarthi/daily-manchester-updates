@@ -15,7 +15,7 @@ client = genai.Client(api_key=GEMINI_API_KEY)
 
 def get_gemini_update():
     prompt = (
-        f"Today is {time.strftime('%A, %B %d, %Y')}. Search for today's US Market news and pick buy/sell stocks ideas  "
+        f"Today is {time.strftime('%A, %B %d, %Y')}. Search for today's US Market news "
         "Format as a clean HTML summary with links included."
     )
 
