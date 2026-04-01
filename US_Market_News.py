@@ -92,9 +92,9 @@ def send_email():
         <body>
             <h1>Market, News Daily Update</h1>
             <hr>
-            {get_geminiMarketNews_update}
+            {events_newshtml}
             <hr>
-            {get_gemininews_update}
+            {market_news}
         </body>
     </html>
     """
