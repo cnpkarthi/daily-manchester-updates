@@ -47,7 +47,7 @@ def get_geminifreeevent_update():
     
 def get_geminifoodfreebies_update():
     
-    freeFood_Prompt = (
+    freeFood_Prompt = ("/gen"
         f"Today is {time.strftime('%A, %B %d, %Y')}. "
         f"2. Search for food freebies & Retail Deals in Manchester, CT."
         f"Format each sections separately in clean HTML with headings and links."
