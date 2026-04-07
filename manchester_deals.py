@@ -15,7 +15,7 @@ TARGET_CITY = "Manchester, CT"
 client = genai.Client(api_key=GEMINI_API_KEY)
 
 def get_geminifreeevent_update():
-    freeEvent_Prompt = (
+    freeEvent_Prompt = ("/Zen"
         f"Today is {time.strftime('%A, %B %d, %Y')}. "
         f"2. Search for free events in Manchester, CT."
         f"Format each sections separately in clean HTML with headings and links."
