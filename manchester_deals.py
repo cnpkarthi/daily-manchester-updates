@@ -16,9 +16,7 @@ client = genai.Client(api_key=GEMINI_API_KEY)
 
 def get_geminifreeevent_update():
     freeEvent_Prompt = ("/gen "
-        f"Today is {time.strftime('%A, %B %d, %Y')}. "
-        f"2. Search for free events in Manchester, CT."
-        f"Format each sections separately in clean HTML with headings and links."
+        f"Today is {time.strftime('%A, %B %d, %Y')}. Search for free events in Manchester, CT. Format each sections separately in clean HTML with headings and links."
     )
     
        
