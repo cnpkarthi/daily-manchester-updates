@@ -15,7 +15,7 @@ TARGET_CITY = "Manchester, CT"
 client = genai.Client(api_key=GEMINI_API_KEY)
 
 def get_geminifreeevent_update():
-    freeEvent_Prompt = ("/gen "
+    freeEvent_Prompt = ("/Zen "
         f"Today is {time.strftime('%A, %B %d, %Y')}. Search for free events in Manchester, CT. Format each sections separately in clean HTML with headings and links."
     )
     
@@ -45,10 +45,7 @@ def get_geminifreeevent_update():
     
 def get_geminifoodfreebies_update():
     
-    freeFood_Prompt = ("/gen "
-        f"Today is {time.strftime('%A, %B %d, %Y')}. "
-        f"today freebies and offers for food in and around Manchester, CT."
-        f"Format each sections separately in clean HTML with headings and links."
+    freeFood_Prompt = ("/zen Today is {time.strftime('%A, %B %d, %Y')}. today freebies and offers for food in and around Manchester, CT. Format each sections separately in clean HTML with headings and links."
     )
     
     # Wait longer each time: 30s, 60s, 120s
